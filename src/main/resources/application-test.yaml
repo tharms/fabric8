@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    include: local
+  datasource:
+    url: jdbc:postgresql://localhost:31081/jobmon?stringtype=unspecified
+    username: jobmonitor
+    password: jobmon
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL82Dialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: false

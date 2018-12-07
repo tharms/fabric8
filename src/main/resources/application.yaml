@@ -1,0 +1,62 @@
+spring:
+  profiles:
+    active: ${env:test}
+  datasource:
+    hikari:
+      connection-test-query: SELECT 42;
+      minimum-idle: 30
+      maximum-pool-size: 50
+      pool-name: jobmon
+      register-mbeans: true
+    url: ${DBURL:}
+    username: ${DBUSER:}
+    password: ${DBPASSWORD:}
+    type: com.zaxxer.hikari.HikariDataSource
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+  mvc:
+    throw-exception-if-no-handler-found: true
+
+management:
+  context-path: /
+endpoints:
+  enabled: false
+  health:
+    sensitive: false
+    enabled: true
+  actuator:
+    enabled: false
+  auditevents:
+    enabled: false
+  autoconfig:
+    enabled: false
+  beans:
+    enabled: false
+  configprops:
+    enabled: false
+  dump:
+    enabled: false
+  env:
+    enabled: false
+  flyway:
+    enabled: false
+  heapdump:
+    enabled: false
+  info:
+    enabled: false
+  loggers:
+    enabled: false
+  mappings:
+    enabled: false
+  metrics:
+    enabled: false
+  profile:
+    enabled: false
+  trace:
+    enabled: false
+
+logging:
+  level:
+    org.hibernate.internal.ExceptionMapperStandardImpl: OFF
+    org.hibernate.engine.jdbc.spi.SqlExceptionHelper: OFF
